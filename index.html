@@ -4,7 +4,6 @@
 <title>Abhishek CK - Portfolio</title>
 
 <style>
-
 html{
     scroll-behavior:smooth;
 }
@@ -12,23 +11,23 @@ html{
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:#0f0f1a;
-    color:#eee;
+    background:#0f172a;
+    color:#e2e8f0;
 }
 
 /* NAVIGATION */
 nav{
     position:fixed;
     width:100%;
-    background:linear-gradient(90deg,#141e30,#243b55);
-    padding:15px 0;
+    background:#0b1120;
+    padding:18px 0;
     text-align:center;
     z-index:1000;
-    box-shadow:0 5px 20px rgba(0,0,0,0.6);
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 
 nav a{
-    color:white;
+    color:#cbd5e1;
     text-decoration:none;
     margin:0 25px;
     font-weight:bold;
@@ -36,16 +35,14 @@ nav a{
 }
 
 nav a:hover{
-    color:#ff4ecd;
-    text-shadow:0 0 10px #ff4ecd;
+    color:#ff2e63;
 }
 
 /* HEADER */
 header{
-    background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
-    color:white;
+    padding:150px 20px 80px;
     text-align:center;
-    padding:140px 20px 80px;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 
 /* PROFILE IMAGE */
@@ -53,27 +50,28 @@ header{
     width:280px;
     height:280px;
     border-radius:50%;
-    border:5px solid #ff4ecd;
     object-fit:cover;
-    box-shadow:0 0 30px #ff4ecd;
-    animation:float 3s ease-in-out infinite;
+    border:6px solid #ff2e63;
+    box-shadow:0 0 40px rgba(255,46,99,0.6);
+    animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
     0%{transform:translateY(0);}
-    50%{transform:translateY(-12px);}
+    50%{transform:translateY(-15px);}
     100%{transform:translateY(0);}
 }
 
 header h1{
-    margin:20px 0 10px;
-    font-size:38px;
-    letter-spacing:2px;
+    margin-top:25px;
+    font-size:40px;
+    color:white;
 }
 
 .typing{
-    font-size:20px;
-    border-right:3px solid #ff4ecd;
+    font-size:22px;
+    color:#ff2e63;
+    border-right:3px solid #ff2e63;
     white-space:nowrap;
     overflow:hidden;
     width:0;
@@ -91,44 +89,52 @@ header h1{
 
 /* SECTIONS */
 section{
-    padding:70px 10%;
+    padding:80px 10%;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s forwards;
 }
 
 section:nth-child(even){
-    background:#111827;
+    background:#1e293b;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 h2{
-    color:#ff4ecd;
+    color:#ff2e63;
     margin-bottom:25px;
-    text-transform:uppercase;
 }
 
 /* CARDS */
 .card{
-    background:#1c1c2b;
+    background:#0b1120;
     padding:25px;
     border-radius:15px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.5);
-    transition:0.4s;
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 0 25px #ff4ecd;
 }
 
 /* SKILLS */
 .bar{
-    background:#2a2a3d;
+    background:#334155;
     border-radius:20px;
     overflow:hidden;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 .bar-fill{
     height:14px;
-    background:linear-gradient(90deg,#ff4ecd,#6a11cb);
+    background:#ff2e63;
     width:0;
     animation:fillBar 2s forwards;
 }
@@ -145,29 +151,28 @@ h2{
 /* SOCIAL */
 .social a{
     display:inline-block;
-    margin:10px;
+    margin:12px;
     padding:12px 25px;
     border-radius:30px;
-    background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
+    background:#ff2e63;
     color:white;
     text-decoration:none;
     font-weight:bold;
-    transition:0.4s;
+    transition:0.3s;
 }
 
 .social a:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 20px #ff4ecd;
+    background:white;
+    color:#ff2e63;
 }
 
 /* FOOTER */
 footer{
-    background:#141e30;
-    color:white;
+    background:#0b1120;
     text-align:center;
     padding:25px;
+    color:#94a3b8;
 }
-
 </style>
 </head>
 
@@ -182,17 +187,18 @@ footer{
 
 <header>
 
-<img src="xx.jpg" class="profile-img">
+<!-- YOUR IMAGE ADDED HERE -->
+<img src="https://i.ibb.co/VY39Tc7D/xx.jpg" class="profile-img">
 
 <h1>Abhishek CK</h1>
-<p class="typing">Web Developer | PHP | python | html | MySQL | fullstack Developer</p>
+<p class="typing">Web Developer | PHP | MySQL | fullstack Developer</p>
 
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>I am a passionate web developer from India creating secure and responsive web applications. I love building real-world projects like student portals and database-driven systems.</p>
+<p>I am a passionate web developer creating secure and responsive web applications. I enjoy learning new technologies and building real-world projects.</p>
 </div>
 </section>
 
@@ -217,20 +223,20 @@ footer{
 <h2>Projects</h2>
 <div class="card">
 <h3>Student Complaint Portal</h3>
-<p>Students register, login and submit complaints. Admin securely views complaints using PHP and MySQL.</p>
+<p>Students register, login and submit complaints. Admin securely views complaints.</p>
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
-<p>Email: hacherinsta719@gmail.com</p>
+<p>Email: hackerinsta719@gmail.com</p>
 <p>Phone: +91 9739193141</p>
 
 <div class="social">
 <a href="https://www.instagram.com/cursed_._boi?igsh=bGI0ZjVqenlnNnV3">Instagram</a>
-<a href="#">GitHub</a>
-<a href="#">LinkedIn</a>
+<a href="https://youtube.com/@abhi_the_irenic?si=Noj63wWeVAZfrZnv">youtube</a>
+<a href="https://www.linkedin.com/in/abhishek-abhishek-767686380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
 </div>
 
 </div>
