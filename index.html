@@ -3,176 +3,123 @@
 <head>
 <title>Abhishek CK - Portfolio</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     margin:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial;
     background:#0f172a;
     color:#e2e8f0;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav{
     position:fixed;
     width:100%;
     background:#0b1120;
-    padding:18px 0;
+    padding:15px;
     text-align:center;
     z-index:1000;
-    box-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
-
 nav a{
     color:#cbd5e1;
+    margin:0 15px;
     text-decoration:none;
-    margin:0 25px;
     font-weight:bold;
-    transition:0.3s;
 }
-
-nav a:hover{
-    color:#ff2e63;
-}
+nav a:hover{color:#ff2e63;}
 
 /* HEADER */
 header{
-    padding:150px 20px 80px;
+    padding:140px 20px;
     text-align:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
 }
-
-/* PROFILE IMAGE */
 .profile-img{
-    width:280px;
-    height:280px;
+    width:220px;
+    height:220px;
     border-radius:50%;
-    object-fit:cover;
-    border:6px solid #ff2e63;
-    box-shadow:0 0 40px rgba(255,46,99,0.6);
-    animation:float 4s ease-in-out infinite;
+    border:5px solid #ff2e63;
+    transition:0.4s;
+}
+.profile-img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 50px #ff2e63;
 }
 
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
-}
-
-header h1{
-    margin-top:25px;
-    font-size:40px;
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#ff2e63;
     color:white;
+    border-radius:25px;
+    text-decoration:none;
 }
 
-.typing{
-    font-size:22px;
-    color:#ff2e63;
-    border-right:3px solid #ff2e63;
-    white-space:nowrap;
-    overflow:hidden;
-    width:0;
-    animation:typing 4s steps(30,end) forwards, blink 0.8s infinite;
-}
-
-@keyframes typing{
-    from{width:0}
-    to{width:100%}
-}
-
-@keyframes blink{
-    50%{border-color:transparent}
-}
-
-/* SECTIONS */
+/* SECTION */
 section{
-    padding:80px 10%;
+    padding:70px 10%;
     opacity:0;
     transform:translateY(40px);
-    animation:fadeUp 1s forwards;
+    transition:1s;
+}
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-section:nth-child(even){
-    background:#1e293b;
-}
+h2{color:#ff2e63;}
 
-@keyframes fadeUp{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-h2{
-    color:#ff2e63;
-    margin-bottom:25px;
-}
-
-/* CARDS */
+/* CARD */
 .card{
     background:#0b1120;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
     transition:0.3s;
 }
-
 .card:hover{
     transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(255,46,99,0.4);
 }
 
 /* SKILLS */
 .bar{
     background:#334155;
     border-radius:20px;
-    overflow:hidden;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
-
 .bar-fill{
-    height:14px;
+    height:10px;
     background:#ff2e63;
     width:0;
-    animation:fillBar 2s forwards;
-}
-
-.html{ width:90%; }
-.python{width:30%; }
-.css{ width:50%; }
-.php{ width:70%; }
-.mysql{ width:85%; }
-
-@keyframes fillBar{
-    from{width:0}
+    transition:2s;
 }
 
 /* SOCIAL */
 .social a{
     display:inline-block;
-    margin:12px;
-    padding:12px 25px;
-    border-radius:30px;
+    margin:10px;
+    padding:10px 20px;
     background:#ff2e63;
     color:white;
+    border-radius:20px;
     text-decoration:none;
-    font-weight:bold;
     transition:0.3s;
 }
-
 .social a:hover{
     background:white;
     color:#ff2e63;
 }
 
-/* FOOTER */
-footer{
-    background:#0b1120;
-    text-align:center;
-    padding:25px;
-    color:#94a3b8;
+/* MOBILE */
+@media(max-width:768px){
+    nav a{display:block;margin:10px;}
+    .profile-img{width:150px;height:150px;}
 }
 </style>
 </head>
@@ -187,80 +134,103 @@ footer{
 </nav>
 
 <header>
-
-<!-- YOUR IMAGE ADDED HERE -->
-
-<img src="https://i.ibb.co/SqDXx9V/abhi.png"class="profile-img"> 
+<img src="https://i.ibb.co/SqDXx9V/abhi.png" class="profile-img">
 <h1>Abhishek CK</h1>
-<p class="typing">Web Developer (learner) | PHP | MySQL </p>
+<p>Web Developer</p>
 
+<a href="last 28pdf.pdf" class="btn" download>Download Resume</a>
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-
-<p><h4>I am a passionate web developer creating secure and responsive web applications. I enjoy learning new technologies and building real-world projects.</p>
-Age : 21<br> 
-education :BCA</h4>
+<h4>
+BCA fresher with strong foundation in programming and web development.
+Quick learner passionate about building real-world projects.
+<br><br>
+Age: 21 <br>
+Education: BCA (8.53 CGPA)
+</h4>
 </div>
-
 </section>
 
 <section id="skills">
 <h2>Skills</h2>
 
 <p>HTML</p>
-<div class="bar"><div class="bar-fill html"></div></div>
-<p>python</p>
-<div class="bar"><div class="bar-fill python"></div></div>
+<div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+
+<p>Python</p>
+<div class="bar"><div class="bar-fill" style="width:40%"></div></div>
 
 <p>CSS</p>
-<div class="bar"><div class="bar-fill css"></div></div>
+<div class="bar"><div class="bar-fill" style="width:60%"></div></div>
 
 <p>PHP</p>
-<div class="bar"><div class="bar-fill php"></div></div>
+<div class="bar"><div class="bar-fill" style="width:70%"></div></div>
 
 <p>MySQL</p>
-<div class="bar"><div class="bar-fill mysql"></div></div>
+<div class="bar"><div class="bar-fill" style="width:85%"></div></div>
 
 </section>
 
 <section id="projects">
 <h2>Projects</h2>
+
 <div class="card">
 <h3>Student Complaint Portal</h3>
-<p>Students register, login and submit complaints. Admin securely views complaints.</p>
-    <h4><a href="http://abhishekck.infinityfreeapp.com/index.html?i=1"> Feedback system</a></h4>
-    <h4><a href ="https://irenicabhi.tiiny.site/">TIC TOC TOE game</a></h4> 
-    <h4> <a href="https://ewbs-abhi.lovable.app/">college study materials </a></h4>
+<p>Secure system for students to submit complaints</p>
+<a href="http://abhishekck.infinityfreeapp.com" target="_blank">View Project</a>
 </div>
+
+<div class="card">
+<h3>Tic Tac Toe Game</h3>
+<p>Interactive web-based game</p>
+<a href="https://irenicabhi.tiiny.site/" target="_blank">Play Game</a>
+</div>
+
+<div class="card">
+<h3>Study Materials Website</h3>
+<p>Platform to access study resources</p>
+<a href="https://ewbs-abhi.lovable.app/" target="_blank">Open Site</a>
+</div>
+
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
-<h4></h4><p>Email: hackerinsta719@gmail.com</p></h4>
-<h4></h4><p>Phone: +91 9739193141</p></h4>
+
+<h4>Email: hackerinsta719@gmail.com</h4>
+<h4>Phone: +91 9739193141</h4>
 
 <div class="social">
-<a href="https://www.instagram.com/cursed_._boi?igsh=bGI0ZjVqenlnNnV3">Instagram</a>
-<a href="https://youtube.com/@abhi_the_irenic?si=Noj63wWeVAZfrZnv">youtube</a>
-<a href="https://www.linkedin.com/in/abhishek-abhishek-767686380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
+<a href="https://www.instagram.com/cursed_._boi?igsh=bGI0ZjVqenlnNnV3" target="_blank">Instagram</a>
+
+<a href="https://youtube.com/@abhi_the_irenic?si=Noj63wWeVAZfrZnv" target="_blank">YouTube</a>
+
+<a href="https://www.linkedin.com/in/abhishek-abhishek-767686380" target="_blank">LinkedIn</a>
 </div>
 
 </div>
 </section>
 
-<footer>
+<footer style="text-align:center;padding:20px;">
 © 2026 Abhishek CK | All Rights Reserved
 </footer>
 
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", ()=>{
+    sections.forEach(sec=>{
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
