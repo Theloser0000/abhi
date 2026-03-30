@@ -11,133 +11,181 @@ html{scroll-behavior:smooth;}
 body{
     margin:0;
     font-family:Arial;
-    background:#0f172a;
     color:#e2e8f0;
+    background:black;
+    overflow-x:hidden;
+}
+
+/* 🌌 CANVAS */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-2;
 }
 
 /* NAV */
 nav{
     position:fixed;
     width:100%;
-    background:#0b1120;
-    padding:15px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    padding:6px;
     text-align:center;
     z-index:1000;
 }
 nav a{
-    color:#cbd5e1;
-    margin:0 15px;
+    color:#0ff;
+    margin:0 10px;
     text-decoration:none;
     font-weight:bold;
+    font-size:14px;
 }
-nav a:hover{color:#ff2e63;}
+nav a:hover{
+    color:#ff2e63;
+    text-shadow:0 0 10px #ff2e63;
+}
 
 /* HEADER */
 header{
-    padding:140px 20px;
+    padding:60px 10px 15px;
     text-align:center;
 }
 .profile-img{
-    width:220px;
-    height:220px;
+    width:140px;
+    height:140px;
     border-radius:50%;
-    border:5px solid #ff2e63;
-    transition:0.4s;
-}
-.profile-img:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 50px #ff2e63;
+    border:3px solid #0ff;
+    box-shadow:0 0 25px #0ff;
 }
 
-
+/* TEXT */
+h1{
+    color:#0ff;
+    text-shadow:0 0 10px #0ff;
+    margin:8px 0;
+}
+p,h4{
+    font-size:14px;
+    margin:5px 0;
+}
 
 /* SECTION */
 section{
-    padding:70px 10%;
+    padding:20px 8%;
     opacity:0;
-    transform:translateY(40px);
-    transition:1s;
+    transform:translateY(20px);
+    transition:0.6s;
 }
 section.show{
     opacity:1;
     transform:translateY(0);
 }
 
-h2{color:#ff2e63;}
+h2{
+    color:#ff2e63;
+    text-shadow:0 0 10px #ff2e63;
+    font-size:20px;
+}
 
-/* CARD */
+/* 🧊 GLASS CARD */
 .card{
-    background:#0b1120;
-    padding:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:12px;
     border-radius:10px;
-    margin-bottom:20px;
+    margin-bottom:10px;
     transition:0.3s;
 }
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 20px 40px rgba(255,46,99,0.4);
+    transform:translateY(-4px);
+    box-shadow:0 0 25px #0ff;
 }
 
 /* SKILLS */
 .bar{
-    background:#334155;
+    background:#111;
     border-radius:20px;
-    margin-bottom:10px;
 }
 .bar-fill{
-    height:10px;
-    background:#ff2e63;
+    height:6px;
+    background:linear-gradient(90deg,#0ff,#ff2e63);
     width:0;
-    transition:2s;
+    transition:1.5s;
+}
+
+/* 🔘 PROJECT BUTTON */
+.project-btn{
+    display:inline-block;
+    margin-top:8px;
+    padding:6px 14px;
+    background:transparent;
+    color:#0ff;
+    border:1px solid #0ff;
+    border-radius:20px;
+    text-decoration:none;
+    font-size:13px;
+}
+.project-btn:hover{
+    background:#0ff;
+    color:black;
+    box-shadow:0 0 15px #0ff;
 }
 
 /* SOCIAL */
 .social a{
     display:inline-block;
-    margin:10px;
-    padding:10px 20px;
-    background:#ff2e63;
-    color:white;
+    margin:5px;
+    padding:6px 14px;
+    background:#0ff;
+    color:black;
     border-radius:20px;
     text-decoration:none;
-    transition:0.3s;
 }
 .social a:hover{
-    background:white;
-    color:#ff2e63;
+    background:#ff2e63;
+    color:white;
+    box-shadow:0 0 15px #ff2e63;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:10px;
+    font-size:13px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-    nav a{display:block;margin:10px;}
-    .profile-img{width:150px;height:150px;}
+    nav a{display:block;margin:5px;}
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="bg"></canvas>
+
 <nav>
+<a href="#top">Home</a>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<header>
+<header id="top">
 <img src="https://i.ibb.co/SqDXx9V/abhi.png" class="profile-img">
 <h1>Abhishek CK</h1>
-<p>Web Developer</p>
-
-
+<p style="color:#0ff;">Web Developer</p>
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
 <h4>
-BCA fresher with strong foundation in programming and web development.
-Quick learner passionate about building real-world projects.
+BCA fresher passionate about web development and real-world projects.
 <br><br>
 Age: 21 <br>
 Education: BCA (8.53 CGPA)
@@ -149,19 +197,19 @@ Education: BCA (8.53 CGPA)
 <h2>Skills</h2>
 
 <p>HTML</p>
-<div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+<div class="bar"><div class="bar-fill" data-width="90%"></div></div>
 
 <p>Python</p>
-<div class="bar"><div class="bar-fill" style="width:40%"></div></div>
+<div class="bar"><div class="bar-fill" data-width="40%"></div></div>
 
 <p>CSS</p>
-<div class="bar"><div class="bar-fill" style="width:60%"></div></div>
+<div class="bar"><div class="bar-fill" data-width="60%"></div></div>
 
 <p>PHP</p>
-<div class="bar"><div class="bar-fill" style="width:70%"></div></div>
+<div class="bar"><div class="bar-fill" data-width="70%"></div></div>
 
 <p>MySQL</p>
-<div class="bar"><div class="bar-fill" style="width:85%"></div></div>
+<div class="bar"><div class="bar-fill" data-width="85%"></div></div>
 
 </section>
 
@@ -170,20 +218,20 @@ Education: BCA (8.53 CGPA)
 
 <div class="card">
 <h3>Student Complaint Portal</h3>
-<p>Secure system for students to submit complaints</p>
-<a href="http://abhishekck.infinityfreeapp.com" target="_blank">View Project</a>
+<p>Secure system for students</p>
+<a href="http://abhishekck.infinityfreeapp.com" target="_blank" class="project-btn">Open Project</a>
 </div>
 
 <div class="card">
 <h3>Tic Tac Toe Game</h3>
-<p>Interactive web-based game</p>
-<a href="https://irenicabhi.tiiny.site/" target="_blank">Play Game</a>
+<p>Interactive game</p>
+<a href="https://irenicabhi.tiiny.site/" target="_blank" class="project-btn">Play Game</a>
 </div>
 
 <div class="card">
-<h3>Study Materials Website</h3>
-<p>Platform to access study resources</p>
-<a href="https://ewbs-abhi.lovable.app/" target="_blank">Open Site</a>
+<h3>Study Materials</h3>
+<p>Resources platform</p>
+<a href="https://ewbs-abhi.lovable.app/" target="_blank" class="project-btn">Open Site</a>
 </div>
 
 </section>
@@ -196,31 +244,64 @@ Education: BCA (8.53 CGPA)
 <h4>Phone: +91 9739193141</h4>
 
 <div class="social">
-<a href="https://www.instagram.com/cursed_._boi?igsh=bGI0ZjVqenlnNnV3" target="_blank">Instagram</a>
-
-<a href="https://youtube.com/@abhi_the_irenic?si=Noj63wWeVAZfrZnv" target="_blank">YouTube</a>
-
-<a href="https://www.linkedin.com/in/abhishek-abhishek-767686380" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/cursed_._boi">Instagram</a>
+<a href="https://youtube.com/@abhi_the_irenic">YouTube</a>
+<a href="https://www.linkedin.com/in/abhishek-abhishek-767686380">LinkedIn</a>
 </div>
 
 </div>
 </section>
 
-<footer style="text-align:center;padding:20px;">
-© 2026 Abhishek CK | All Rights Reserved
+<footer>
+© 2026 Abhishek CK
 </footer>
 
 <script>
+// SCROLL
 const sections = document.querySelectorAll("section");
+const bars = document.querySelectorAll(".bar-fill");
+
+window.onload=()=>window.scrollTo(0,0);
 
 window.addEventListener("scroll", ()=>{
     sections.forEach(sec=>{
-        const top = sec.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
+        if(sec.getBoundingClientRect().top < window.innerHeight-50){
             sec.classList.add("show");
         }
     });
+    bars.forEach(bar=>{
+        if(bar.getBoundingClientRect().top < window.innerHeight){
+            bar.style.width = bar.dataset.width;
+        }
+    });
 });
+
+// 🌌 PARTICLES
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let p=[];
+for(let i=0;i<70;i++){
+p.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-0.5),dy:(Math.random()-0.5)});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#0ff";
+p.forEach(a=>{
+ctx.beginPath();
+ctx.arc(a.x,a.y,a.r,0,Math.PI*2);
+ctx.fill();
+a.x+=a.dx;
+a.y+=a.dy;
+if(a.x<0||a.x>canvas.width)a.dx*=-1;
+if(a.y<0||a.y>canvas.height)a.dy*=-1;
+});
+requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
