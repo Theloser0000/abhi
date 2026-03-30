@@ -15,29 +15,18 @@ body{
     color:#e2e8f0;
 }
 
-/* SCROLL BAR */
-#progress{
-    position:fixed;
-    top:0;
-    left:0;
-    height:4px;
-    background:#ff2e63;
-    width:0%;
-    z-index:2000;
-}
-
 /* NAV */
 nav{
     position:fixed;
     width:100%;
     background:#0b1120;
-    padding:12px;
+    padding:15px;
     text-align:center;
     z-index:1000;
 }
 nav a{
     color:#cbd5e1;
-    margin:0 12px;
+    margin:0 15px;
     text-decoration:none;
     font-weight:bold;
 }
@@ -45,42 +34,30 @@ nav a:hover{color:#ff2e63;}
 
 /* HEADER */
 header{
-    padding:100px 20px;
+    padding:140px 20px;
     text-align:center;
 }
 .profile-img{
-    width:200px;
-    height:200px;
+    width:220px;
+    height:220px;
     border-radius:50%;
     border:5px solid #ff2e63;
     transition:0.4s;
 }
 .profile-img:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 60px #ff2e63;
-}
-
-/* TYPING */
-.typing{
-    color:#ff2e63;
-    font-size:20px;
-    margin-top:10px;
+    transform:scale(1.05);
+    box-shadow:0 0 50px #ff2e63;
 }
 
 /* BUTTON */
 .btn{
     display:inline-block;
     margin-top:15px;
-    padding:12px 25px;
+    padding:10px 20px;
     background:#ff2e63;
     color:white;
     border-radius:25px;
     text-decoration:none;
-    transition:0.3s;
-}
-.btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 10px 30px rgba(255,46,99,0.5);
 }
 
 /* SECTION */
@@ -107,7 +84,7 @@ h2{color:#ff2e63;}
 }
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 20px 50px rgba(255,46,99,0.4);
+    box-shadow:0 20px 40px rgba(255,46,99,0.4);
 }
 
 /* SKILLS */
@@ -141,15 +118,13 @@ h2{color:#ff2e63;}
 
 /* MOBILE */
 @media(max-width:768px){
-    nav a{display:block;margin:8px;}
+    nav a{display:block;margin:10px;}
     .profile-img{width:150px;height:150px;}
 }
 </style>
 </head>
 
 <body>
-
-<div id="progress"></div>
 
 <nav>
 <a href="#about">About</a>
@@ -161,8 +136,7 @@ h2{color:#ff2e63;}
 <header>
 <img src="https://i.ibb.co/SqDXx9V/abhi.png" class="profile-img">
 <h1>Abhishek CK</h1>
-
-<div class="typing" id="typing"></div>
+<p>Web Developer</p>
 
 <a href="last 28pdf.pdf" class="btn" download>Download Resume</a>
 </header>
@@ -184,19 +158,19 @@ Education: BCA (8.53 CGPA)
 <h2>Skills</h2>
 
 <p>HTML</p>
-<div class="bar"><div class="bar-fill" data-width="90%"></div></div>
+<div class="bar"><div class="bar-fill" style="width:90%"></div></div>
 
 <p>Python</p>
-<div class="bar"><div class="bar-fill" data-width="40%"></div></div>
+<div class="bar"><div class="bar-fill" style="width:40%"></div></div>
 
 <p>CSS</p>
-<div class="bar"><div class="bar-fill" data-width="60%"></div></div>
+<div class="bar"><div class="bar-fill" style="width:60%"></div></div>
 
 <p>PHP</p>
-<div class="bar"><div class="bar-fill" data-width="70%"></div></div>
+<div class="bar"><div class="bar-fill" style="width:70%"></div></div>
 
 <p>MySQL</p>
-<div class="bar"><div class="bar-fill" data-width="85%"></div></div>
+<div class="bar"><div class="bar-fill" style="width:85%"></div></div>
 
 </section>
 
@@ -232,7 +206,9 @@ Education: BCA (8.53 CGPA)
 
 <div class="social">
 <a href="https://www.instagram.com/cursed_._boi?igsh=bGI0ZjVqenlnNnV3" target="_blank">Instagram</a>
+
 <a href="https://youtube.com/@abhi_the_irenic?si=Noj63wWeVAZfrZnv" target="_blank">YouTube</a>
+
 <a href="https://www.linkedin.com/in/abhishek-abhishek-767686380" target="_blank">LinkedIn</a>
 </div>
 
@@ -240,13 +216,11 @@ Education: BCA (8.53 CGPA)
 </section>
 
 <footer style="text-align:center;padding:20px;">
-© 2026 Abhishek CK
+© 2026 Abhishek CK | All Rights Reserved
 </footer>
 
 <script>
-// SCROLL ANIMATION + SKILLS
 const sections = document.querySelectorAll("section");
-const bars = document.querySelectorAll(".bar-fill");
 
 window.addEventListener("scroll", ()=>{
     sections.forEach(sec=>{
@@ -255,41 +229,7 @@ window.addEventListener("scroll", ()=>{
             sec.classList.add("show");
         }
     });
-
-    bars.forEach(bar=>{
-        const top = bar.getBoundingClientRect().top;
-        if(top < window.innerHeight){
-            bar.style.width = bar.dataset.width;
-        }
-    });
-
-    // SCROLL PROGRESS
-    let scroll = document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    document.getElementById("progress").style.width = (scroll/height)*100 + "%";
 });
-
-// TYPING EFFECT
-const text = ["Web Developer", "Python Learner", "AI Enthusiast"];
-let i=0, j=0, current="", isDeleting=false;
-
-function type(){
-    current = text[i];
-    document.getElementById("typing").innerText = current.substring(0,j);
-
-    if(!isDeleting && j<current.length){
-        j++;
-        setTimeout(type,100);
-    } else if(isDeleting && j>0){
-        j--;
-        setTimeout(type,50);
-    } else{
-        isDeleting = !isDeleting;
-        if(!isDeleting) i = (i+1)%text.length;
-        setTimeout(type,1000);
-    }
-}
-type();
 </script>
 
 </body>
