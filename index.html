@@ -1,189 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Abhishek CK - Portfolio</title>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek CK | Portfolio</title>
 
 <style>
-html{scroll-behavior:smooth;}
-body{
+*{
     margin:0;
-    font-family:Arial;
-    color:#e2e8f0;
-    background:black;
-    overflow-x:hidden;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-/* ?? CANVAS */
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-2;
+body{
+    background:#f5f7fa;
+    color:#333;
+    line-height:1.6;
 }
 
-/* NAV */
 nav{
-    position:fixed;
-    width:100%;
-    background:rgba(0,0,0,0.5);
-    backdrop-filter:blur(10px);
-    padding:10px 0;
+    background:#1e293b;
+    padding:15px;
+    position:sticky;
+    top:0;
     text-align:center;
-    z-index:1000;
 }
+
 nav a{
-    color:#0ff;
-    margin:0 12px;
+    color:white;
     text-decoration:none;
+    margin:0 15px;
     font-weight:bold;
-    font-size:16px;
 }
+
 nav a:hover{
-    color:#ff2e63;
-    text-shadow:0 0 10px #ff2e63;
+    color:#60a5fa;
 }
 
-/* HEADER */
 header{
-    padding:150px 10px 50px; /* more top padding to separate navbar */
+    background:white;
+    padding:50px 20px;
     text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
+
 .profile-img{
-    width:220px;
-    height:220px;
+    width:180px;
+    height:180px;
     border-radius:50%;
-    border:4px solid #0ff;
-    box-shadow:0 0 30px #0ff;
-    margin-bottom:20px;
+    border:4px solid #2563eb;
+    object-fit:cover;
 }
 
-/* TEXT */
 h1{
-    color:#0ff;
-    text-shadow:0 0 15px #0ff;
-    margin:10px 0;
-    font-size:36px;
-}
-p,h4{
-    font-size:16px;
-    margin:8px 0;
+    margin-top:20px;
+    color:#1e293b;
 }
 
-/* SECTION */
+.role{
+    color:#2563eb;
+    font-size:18px;
+    margin-top:10px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+
 section{
-    padding:40px 10%;
-    opacity:0;
-    transform:translateY(30px);
-    transition:0.6s;
+    background:white;
+    margin:25px 0;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
-section.show{
-    opacity:1;
-    transform:translateY(0);
-}
+
 h2{
-    color:#ff2e63;
-    text-shadow:0 0 15px #ff2e63;
-    font-size:26px;
+    color:#2563eb;
     margin-bottom:20px;
+    border-bottom:2px solid #2563eb;
+    padding-bottom:10px;
 }
 
-/* ?? GLASS CARD */
-.card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.1);
-    padding:20px;
-    border-radius:15px;
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.project{
+    border-left:4px solid #2563eb;
+    padding-left:15px;
     margin-bottom:25px;
-    transition:0.3s;
-}
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 30px #0ff;
 }
 
-/* SKILLS */
-.bar{
-    background:#111;
-    border-radius:20px;
-    margin-bottom:15px;
-}
-.bar-fill{
-    height:10px;
-    background:linear-gradient(90deg,#0ff,#ff2e63);
-    width:0;
-    transition:1.5s;
-}
-
-/* ?? PROJECT BUTTON */
-.project-btn{
+.btn{
     display:inline-block;
-    margin-top:12px;
-    padding:10px 20px;
-    background:transparent;
-    color:#0ff;
-    border:1px solid #0ff;
-    border-radius:25px;
+    background:#2563eb;
+    color:white;
+    padding:10px 18px;
     text-decoration:none;
-    font-size:14px;
-}
-.project-btn:hover{
-    background:#0ff;
-    color:black;
-    box-shadow:0 0 20px #0ff;
+    border-radius:5px;
+    margin-top:10px;
 }
 
-/* SOCIAL */
+.btn:hover{
+    background:#1d4ed8;
+}
+
 .social a{
     display:inline-block;
-    margin:8px;
-    padding:10px 18px;
-    background:#0ff;
-    color:black;
-    border-radius:25px;
+    background:#2563eb;
+    color:white;
+    padding:10px 15px;
+    margin:10px 10px 0 0;
+    border-radius:5px;
     text-decoration:none;
 }
+
 .social a:hover{
-    background:#ff2e63;
-    color:white;
-    box-shadow:0 0 20px #ff2e63;
+    background:#1d4ed8;
 }
 
-/* FOOTER */
 footer{
+    background:#1e293b;
+    color:white;
     text-align:center;
     padding:20px;
-    font-size:14px;
+    margin-top:30px;
 }
 
-/* MOBILE FIXES */
 @media(max-width:768px){
     nav a{
         display:block;
-        margin:8px 0;
-        font-size:18px;
+        margin:10px;
     }
-    header{
-        padding-top:180px;
-    }
+
     .profile-img{
-        width:200px;
-        height:200px;
-        border:4px solid #0ff;
-    }
-    h1{
-        font-size:30px;
-    }
-    p,h4{
-        font-size:16px;
-    }
-    section{
-        padding:30px 6%;
-    }
-    .bar-fill{
-        height:12px;
+        width:150px;
+        height:150px;
     }
 }
 </style>
@@ -191,144 +151,240 @@ footer{
 
 <body>
 
-<canvas id="bg"></canvas>
-
 <nav>
-<a href="#top">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<header id="top">
-<img src="https://i.ibb.co/SqDXx9V/abhi.png" class="profile-img" alt="Profile Image">
-<h1>Abhishek CK</h1>
-<p style="color:#0ff;">Web Developer</p>
+<header>
+    <img src="https://i.ibb.co/SqDXx9V/abhi.png" class="profile-img" alt="Abhishek CK">
+
+    <h1>Abhishek CK</h1>
+
+    <p class="role">
+        Web Developer | BCA Graduate | Aspiring Software Developer
+    </p>
 </header>
 
+<div class="container">
+
 <section id="about">
-<h2>About Me</h2>
-<div class="card">
-<h4>
-I am a passionate web developer creating secure and responsive web applications. I enjoy learning new technologies and building real-world projects.
-<br><br>
-Age: 21 <br>
-Education: BCA 
-</h4>
-</div>
+    <h2>Career Objective</h2>
+
+    <p>
+        Motivated and enthusiastic BCA graduate seeking an entry-level
+        opportunity in the IT industry. Eager to apply my technical
+        skills, learn new technologies, and contribute to organizational
+        growth while building a successful career in software and web
+        development.
+    </p>
+
+    <br>
+
+    <h2>Personal Information</h2>
+
+    <p><strong>Name:</strong> Abhishek CK</p>
+    <p><strong>Age:</strong> 21</p>
+    <p><strong>Qualification:</strong> Bachelor of Computer Applications</p>
+    <p><strong>Email:</strong> hackerinsta719@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9739193141</p>
+    <p><strong>Nationality:</strong> Indian</p>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+
+    <h3>Bachelor of Computer Applications (BCA)</h3>
+
+    <p><strong>College:</strong> East West Business School</p>
+    <p><strong>University:</strong> Bangalore University</p>
+    <p><strong>Graduation Year:</strong> 2026</p>
+    <p><strong>CGPA:</strong> 8.4</p>
 </section>
 
 <section id="skills">
-<h2>Skills</h2>
+    <h2>Technical Skills</h2>
 
-<p>HTML</p>
-<div class="bar"><div class="bar-fill" data-width="90%"></div></div>
-
-<p>Python</p>
-<div class="bar"><div class="bar-fill" data-width="40%"></div></div>
-
-<p>CSS</p>
-<div class="bar"><div class="bar-fill" data-width="60%"></div></div>
-
-<p>PHP</p>
-<div class="bar"><div class="bar-fill" data-width="70%"></div></div>
-
-<p>MySQL</p>
-<div class="bar"><div class="bar-fill" data-width="85%"></div></div>
-
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>PHP</li>
+        <li>MySQL</li>
+        <li>Responsive Web Design</li>
+        <li>Web Application Development</li>
+        <li>Database Management</li>
+        <li>Problem Solving</li>
+    </ul>
 </section>
 
-<section id="projects">
-<h2>Projects</h2>
+<section>
+    <h2>Projects</h2>
 
-<div class="card">
-<h3>Student Complaint Portal</h3>
-<p>Secure system for students</p>
-<a href="http://abhishekck.infinityfreeapp.com" target="_blank" class="project-btn">Open Project</a>
-</div>
+    <div class="project">
+        <h3>Student Complaint Portal</h3>
+        <p>
+            Developed a secure web application that allows students
+            to submit complaints and track their status through
+            an administrative dashboard.
+        </p>
 
-<div class="card">
-<h3>Tic Tac Toe Game</h3>
-<p>Interactive game</p>
-<a href="https://irenicabhi.tiiny.site/" target="_blank" class="project-btn">Play Game</a>
-</div>
+        <a href="http://abhishekck.infinityfreeapp.com"
+           target="_blank"
+           class="btn">
+            View Project
+        </a>
+    </div>
 
-<div class="card">
-<h3>Study Materials</h3>
-<p>Resources platform</p>
-<a href="https://studyck.lovable.app/" target="_blank" class="project-btn">Open Site</a>
-</div>
+    <div class="project">
+        <h3>Tic Tac Toe Game</h3>
 
+        <p>
+            Created an interactive and responsive web-based
+            Tic Tac Toe game with an easy-to-use interface.
+        </p>
+
+        <a href="https://irenicabhi.tiiny.site/"
+           target="_blank"
+           class="btn">
+            View Project
+        </a>
+    </div>
+
+    <div class="project">
+        <h3>Study Material Website</h3>
+
+        <p>
+            Developed a platform that provides students with easy
+            access to study materials, notes, and academic resources.
+        </p>
+
+        <a href="https://studyck.lovable.app/"
+           target="_blank"
+           class="btn">
+            View Project
+        </a>
+    </div>
+
+    <div class="project">
+        <h3>College Farewell Website</h3>
+
+        <p>
+            Designed and developed a responsive website for managing
+            and showcasing college farewell event information,
+            announcements, and media content.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Certifications</h2>
+
+    <p>
+        Currently pursuing professional certifications and
+        continuously learning new technologies.
+    </p>
+</section>
+
+<section>
+    <h2>Internship Experience</h2>
+
+    <p>
+        Fresher – Actively seeking opportunities to gain practical
+        experience and begin a professional career in the IT industry.
+    </p>
+</section>
+
+<section>
+    <h2>Languages Known</h2>
+
+    <ul>
+        <li>Kannada</li>
+        <li>English</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Strengths</h2>
+
+    <ul>
+        <li>Quick Learner</li>
+        <li>Independent Worker</li>
+        <li>Problem Solving</li>
+        <li>Self-Motivated</li>
+        <li>Adaptability</li>
+        <li>Continuous Learning</li>
+        <li>Time Management</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Hobbies & Interests</h2>
+
+    <ul>
+        <li>Web Development</li>
+        <li>Learning New Technologies</li>
+        <li>Exploring Software Tools</li>
+        <li>Watching Technology Content</li>
+        <li>Listening to Music</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Career Interests</h2>
+
+    <ul>
+        <li>Web Developer</li>
+        <li>Software Developer</li>
+        <li>IT Support</li>
+        <li>Full Stack Development</li>
+        <li>Entry-Level Software Engineer</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Professional Summary</h2>
+
+    <p>
+        I am a passionate and dedicated BCA graduate with a strong
+        interest in web development and software technologies.
+        I enjoy creating responsive and user-friendly applications
+        and continuously improving my technical knowledge.
+        I am looking for an opportunity to start my career in the
+        IT industry and grow as a professional software developer.
+    </p>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<div class="card">
+    <h2>Contact</h2>
 
-<h4>Email: hackerinsta719@gmail.com</h4>
-<h4>Phone: +91 9739193141</h4>
+    <p><strong>Email:</strong> hackerinsta719@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9739193141</p>
 
-<div class="social">
-<a href="https://www.instagram.com/cursed_._boi">Instagram</a>
-<a href="https://youtube.com/@abhi_the_irenic">YouTube</a>
-<a href="https://www.linkedin.com/in/abhishek-abhishek-767686380">LinkedIn</a>
-</div>
+    <div class="social">
+        <a href="https://www.linkedin.com/in/abhishek-ck0000" target="_blank">
+            LinkedIn
+        </a>
 
-</div>
+        <a href="https://www.instagram.com/cursed_._boi" target="_blank">
+            Instagram
+        </a>
+
+        <a href="https://youtube.com/@abhi_the_irenic" target="_blank">
+            YouTube
+        </a>
+    </div>
 </section>
 
+</div>
+
 <footer>
-all rights © 2026 Abhishek CK
+    © 2026 Abhishek CK | Professional Portfolio
 </footer>
-
-<script>
-// SCROLL & SKILLS ANIMATION
-const sections = document.querySelectorAll("section");
-const bars = document.querySelectorAll(".bar-fill");
-
-window.onload=()=>window.scrollTo(0,0);
-
-window.addEventListener("scroll", ()=>{
-    sections.forEach(sec=>{
-        if(sec.getBoundingClientRect().top < window.innerHeight-50){
-            sec.classList.add("show");
-        }
-    });
-    bars.forEach(bar=>{
-        if(bar.getBoundingClientRect().top < window.innerHeight){
-            bar.style.width = bar.dataset.width;
-        }
-    });
-});
-
-// ?? PARTICLES BACKGROUND
-const canvas=document.getElementById("bg");
-const ctx=canvas.getContext("2d");
-canvas.width=innerWidth;
-canvas.height=innerHeight;
-
-let p=[];
-for(let i=0;i<70;i++){
-p.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-0.5),dy:(Math.random()-0.5)});
-}
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="#0ff";
-p.forEach(a=>{
-ctx.beginPath();
-ctx.arc(a.x,a.y,a.r,0,Math.PI*2);
-ctx.fill();
-a.x+=a.dx;
-a.y+=a.dy;
-if(a.x<0||a.x>canvas.width)a.dx*=-1;
-if(a.y<0||a.y>canvas.height)a.dy*=-1;
-});
-requestAnimationFrame(draw);
-}
-draw();
-</script>
 
 </body>
 </html>
